@@ -3,6 +3,17 @@ require 'json'
 
 id = "76bbcf39-5b5e-4888-a3a7-808c88fb8126"
 
+
+def setCoordinates(boomslangheadcoordinate)
+
+
+end
+
+
+def isWallOrSnake?(coordinate)
+
+end
+
 get '/' do
     responseObject = {
         "color"=> "#fff111",
