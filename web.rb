@@ -18,12 +18,12 @@ end
 # end
 
 # def isSnake?(coordinate,  )
-def isWallOrSnake(requestJSON)
-    snakeArray = requestJSON["snakes"]
-    snakeCoords = snakeArray.map{|x| x[:"coord"]}
-    puts snakeArray
-    # snakes = 
-end
+# def isWallOrSnake(requestJSON)
+#     snakeArray = requestJSON["snakes"]
+#     snakeCoords = snakeArray.map{|x| x[:"coord"]}
+#     puts snakeArray
+#     # snakes = 
+# end
 
 # Orders food by # of moves from to a coordinate
 def getOrderedFood(food, coord)
