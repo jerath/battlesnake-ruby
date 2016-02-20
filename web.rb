@@ -70,6 +70,8 @@ post '/start' do
         "taunt" => "battlesnake-ruby",
     }
 
+    puts "IN START IM STARTING"
+
     return responseObject.to_json
 end
 
