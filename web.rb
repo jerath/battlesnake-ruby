@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'json'
 
+id= "76bbcf39-5b5e-4888-a3a7-808c88fb8126"
+
 get '/' do
     responseObject = {
         "color"=> "#fff111",
@@ -13,11 +15,14 @@ end
 post '/start' do
     requestBody = request.body.read
     requestJson = requestBody ? JSON.parse(requestBody) : {}
-
     # Get ready to start a game with the request data
     puts requestBody
-
-    # Dummy response
+    height = requestJson["height"]
+    width = requestJson["width"] 
+    totalSnakes= requestJson["snakes"].length
+    boomslang = requestJson.find {|x| x['id'] == id }
+    puts boomslang
+# Dummy response
     responseObject = {
         "taunt" => "battlesnake-ruby",
     }
