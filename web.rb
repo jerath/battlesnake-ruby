@@ -20,8 +20,8 @@ post '/start' do
     height = requestJson["height"]
     width = requestJson["width"] 
     totalSnakes= requestJson["snakes"].length
-    boomslang = requestJson.find {|x| x['id'] == id }
-    puts boomslang
+    # boomslang = requestJson.find {|x| x['id'] == id }
+    # puts boomslang
 # Dummy response
     responseObject = {
         "taunt" => "battlesnake-ruby",
