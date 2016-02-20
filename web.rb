@@ -30,6 +30,19 @@ def isWallOrSnake(coord, responseJson)
     return isSnake || coord[0] == 0 || coord[0] == width || coord[1] == 0 && coord[1] == height
 end
 
+def onlyKeepAdjacentCoordinates(adjacentCoordinates, responseJson)
+    safeAdjacent = []
+    adjacentCoordinates.each do |coord|
+      puts coord.to_s
+      if isWallOrSnake?(coord, responseJson)
+        puts "wall or snake not keeping"
+      else 
+        safeAdjacent.push(coord)
+      end
+    end
+    puts safeAdjacent.to_s
+end
+
 
 # Orders food by # of moves from to a coordinate
 def getOrderedFood(food, coord)
