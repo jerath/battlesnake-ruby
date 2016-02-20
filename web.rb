@@ -34,7 +34,7 @@ end
 # Orders food by # of moves from to a coordinate
 def getOrderedFood(food, coord)
     orderedFood = food.sort_by { |apple| (apple[0] - coord[0]).abs + (apple[1] - coord[1]).abs }
-    print "ORDERED FOOD: " orderedFood.to_s
+    print "ORDERED FOOD: " +  orderedFood.to_s
 end
 
 get '/' do
