@@ -84,8 +84,7 @@ post '/move' do
 
     # Identify us
 
-    puts requestJson["snakes"][0]
-    # boomslang = requestJson["snakes"].detect { |snake| snake[:id] == "76bbcf39-5b5e-4888-a3a7-808c88fb8126" }
+    boomslang = requestJson["snakes"].detect { |snake| snake["id"] == "76bbcf39-5b5e-4888-a3a7-808c88fb8126" }
 
     # getAdjacentCoordinates(boomslang[:coords][0])
 
