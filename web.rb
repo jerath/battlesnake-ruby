@@ -14,7 +14,7 @@ def getAdjacentCoordinates(coord)
 end
 
 
-def isWallOrSnake(coord, responseJson)
+def isWallOrSnake?(coord, responseJson)
     snakeArray = responseJson["snakes"]
     width = responseJson["width"]
     height = responseJson["height"]
@@ -26,8 +26,7 @@ def isWallOrSnake(coord, responseJson)
         end
     end
     isSnake = coords.include? coord 
-    puts isSnake || coord[0] == 0 || coord[0] == width || coord[1] == 0 && coord[1] == height
-    return isSnake || coord[0] == 0 || coord[0] == width || coord[1] == 0 && coord[1] == height
+    return isSnake || coord[0] == 1 || coord[0] == width || coord[1] == 1 || coord[1] == height
 end
 
 def onlyKeepAdjacentCoordinates(adjacentCoordinates, responseJson)
