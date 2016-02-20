@@ -76,7 +76,7 @@ post '/move' do
     requestJson = requestBody ? JSON.parse(requestBody) : {}
 
     # Calculate a move with the request data
-    puts requestBody
+    puts requestJson
     # Dummy response
 
     # Identify us
@@ -84,8 +84,8 @@ post '/move' do
 
     getAdjacentCoordinates(boomslang[:coords][0])
 
-    puts "REQ JSON", requestJson["food"]
-    puts "BOOMSL", boomslang[:coords][0]
+    puts "REQ JSON" + requestJson['food']
+    puts "BOOMSL" + boomslang[:coords][0]
 
     getOrderedFood(requestJson["food"], boomslang[:coords][0])
     isWallOrSnake(requestJSON)
