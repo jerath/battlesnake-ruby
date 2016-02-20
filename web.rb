@@ -95,7 +95,7 @@ post '/move' do
     # Our next move is not towards a wall
     # Identify possible moves
 
-    getSnakeCoords(requestJson["snakes"])
+    # getSnakeCoords(requestJson["snakes"])
     
     responseObject = {
         "move" => "north", # One of either "north", "east", "south", or "west".
