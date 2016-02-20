@@ -20,8 +20,12 @@ end
 # def isSnake?(coordinate,  )
 def isWallOrSnake(requestJSON)
     snakeArray = requestJSON["snakes"]
-    snakeCoords = snakeArray.map{|x| x[:"coord"]}
-    puts snakeArray
+    coordsArray = []
+    snakeArray.each do |x|
+        coordsArray.push(x["coords"].flatten!)
+    end
+    # snakeCoords = snakeArray.map{|x| x[:"coord"]}
+    puts coordsArray
     # snakes = 
 end
 
@@ -41,7 +45,7 @@ post '/start' do
     puts requestBody
     height = requestJson["height"]
     width = requestJson["width"] 
-    totalSnakes= requestJson["snakes"].length    
+    puts requestJson["snakes"] 
     
     # puts boomslang
 
