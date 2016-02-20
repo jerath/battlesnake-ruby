@@ -75,6 +75,9 @@ post '/move' do
 
     getAdjacentCoordinates(boomslang[:coords][0])
 
+    puts "REQ JSON", requestJson["food"]
+    puts "BOOMSL", boomslang[:coords][0]
+
     getOrderedFood(requestJson["food"], boomslang[:coords][0])
     # isWallOrSnake(requestJSON)
     # Our next move is not towards a wall
