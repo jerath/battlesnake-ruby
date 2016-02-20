@@ -18,18 +18,18 @@ end
 # end
 
 # def isSnake?(coordinate,  )
-# def isWallOrSnake(requestJSON)
-#     snakeArray = requestJSON["snakes"]
-#     snakeCoords = snakeArray.map{|x| x[:"coord"]}
-#     puts snakeArray
-#     # snakes = 
-# end
+def isWallOrSnake(requestJSON)
+    snakeArray = requestJSON["snakes"]
+    snakeCoords = snakeArray.map{|x| x[:"coord"]}
+    puts snakeArray
+    # snakes = 
+end
 
 # Orders food by # of moves from to a coordinate
 def getOrderedFood(food, coord)
     # find how many moves each food is
     # re-order into array
-    orderedFood = food.sort_by { |apple| (apple[0] - coord[0]) + (apple[1] - coord[1] }
+    orderedFood = food.sort_by { |apple| (apple[0] - coord[0]) + (apple[1] - coord[1]) }
     puts "FOOD IS {{food}}"
     puts "ORDERED FOOD IS {{orderedFood}}"
 end
