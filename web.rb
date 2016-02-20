@@ -13,13 +13,13 @@ def getAdjacentCoordinates(coord)
     return [north, south, east, west]
 end
 
-def getSnakeCoords(snakes)
-    coords = []
-    snakes.each do |snake|
-        coords.push(snake[:coords].flatten!)
-    end
-    puts coords
-end  
+# def getSnakeCoords(snakes)
+#     coords = []
+#     snakes.each do |snake|
+#         coords.push(snake[:coords].flatten!)
+#     end
+#     puts coords
+# end  
 # def isWAll?(coordinate, )
 
 # end
@@ -70,7 +70,7 @@ post '/start' do
     responseObject = {
         "taunt" => "battlesnake-ruby",
     }
-    
+
     return responseObject.to_json
 end
 
@@ -79,8 +79,8 @@ post '/move' do
     requestJson = requestBody ? JSON.parse(requestBody) : {}
 
     # Calculate a move with the request data
+    puts "REQUEST JSON IS:"
     puts requestJson
-    # Dummy response
 
     # Identify us
     # boomslang = requestJson["snakes"].detect { |snake| snake[:id] == "76bbcf39-5b5e-4888-a3a7-808c88fb8126" }
