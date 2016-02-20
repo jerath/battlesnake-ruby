@@ -3,7 +3,6 @@ require 'json'
 
 id = "76bbcf39-5b5e-4888-a3a7-808c88fb8126"
 
-
 def getAdjacentCoordinates(coord)
     north = [coord[0], coord[1] - 1]
     south = [coord[0], coord[1] + 1]
@@ -37,9 +36,15 @@ def getOrderedFood(food, coord)
     puts "ORDERED FOOD: " +  orderedFood.to_s
 end
 
+def getBestMoveInTermsOfFood(orderedFood, moveOptions)
+    targetFood = orderedFood[0]
+    orderedMoveOptions = moveOptions.sort_by { |move|  (move[0] - targetFood[0]).abs + (move[1] - targetFood[1]).abs }
+    orderedMoveOptions.first
+end
+
 get '/' do
     responseObject = {
-        "color"=> "#fff111",
+        "color"=> "#bada55",
         "head_url"=> "url/to/your/img/file"
     }
 
@@ -47,7 +52,6 @@ get '/' do
 end
 
 post '/start' do
-    puts "OKAY WE ARE STATREYAKDFLFJ"
     requestBody = request.body.read
     requestJson = requestBody ? JSON.parse(requestBody) : {}
     # Get ready to start a game with the request data    
