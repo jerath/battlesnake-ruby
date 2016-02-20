@@ -18,6 +18,17 @@ def isWallOrSnake?(coordinate, snakes)
     snakes = 'hello'
 end
 
+# Orders food by # of moves from to a coordinate
+def getOrderedFood(food, coord)
+    # find how many moves each food is
+    # re-order into array
+    orderedFood = food.sort_by { |apple| (apple[0] - coord[0]) + (apple[1] - coord[1] }
+    puts "FOOD IS {{food}}"
+    puts "ORDERED FOOD IS {{orderedFood}}"
+
+# %w{apple pear fig}.sort_by { |word| word.length}
+end
+
 get '/' do
     responseObject = {
         "color"=> "#fff111",
@@ -57,10 +68,9 @@ post '/move' do
     # Identify us
     boomslang = requestJson["snakes"].detect { |snake| snake[:id] == "76bbcf39-5b5e-4888-a3a7-808c88fb8126" }
 
-    # puts getAdjacentCoordinates(boomslang[:coords][0])
+    getAdjacentCoordinates(boomslang[:coords][0])
 
-    # Our next move is not towards a wall
-    # Identify possible moves
+    getOrderedFood(requestJson["food"], boomslang[:coords][0])
 
     responseObject = {
         "move" => "north", # One of either "north", "east", "south", or "west".
