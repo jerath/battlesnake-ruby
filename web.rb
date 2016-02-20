@@ -65,7 +65,7 @@ post '/move' do
     boomslang = requestJson["snakes"].detect { |snake| snake[:id] == "76bbcf39-5b5e-4888-a3a7-808c88fb8126" }
 
     getAdjacentCoordinates(boomslang[:coords][0])
-    isWallOrSnake(requestJSON)
+    # isWallOrSnake(requestJSON)
     # Our next move is not towards a wall
     # Identify possible moves
 
