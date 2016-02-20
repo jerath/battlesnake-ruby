@@ -13,9 +13,16 @@ def getAdjacentCoordinates(coord)
     return [north, south, east, west]
 end
 
+# def isWAll?(coordinate, )
 
-def isWallOrSnake?(coordinate, snakes)
-    snakes = 'hello'
+# end
+
+# def isSnake?(coordinate,  )
+def isWallOrSnake(requestBody)
+    snakeArray = requestJson["snakes"]
+    snakeCoords = snakeArray.map{|x| x[:"coord"]}
+    puts snakeArray
+    # snakes = 
 end
 
 get '/' do
@@ -57,8 +64,8 @@ post '/move' do
     # Identify us
     boomslang = requestJson["snakes"].detect { |snake| snake[:id] == "76bbcf39-5b5e-4888-a3a7-808c88fb8126" }
 
-    # puts getAdjacentCoordinates(boomslang[:coords][0])
-
+    getAdjacentCoordinates(boomslang[:coords][0])
+    isWallOrSnake(requestBody)
     # Our next move is not towards a wall
     # Identify possible moves
 
