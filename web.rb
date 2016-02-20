@@ -57,6 +57,7 @@ get '/' do
 end
 
 post '/start' do
+    puts "OKAY WE ARE STATREYAKDFLFJ"
     requestBody = request.body.read
     requestJson = requestBody ? JSON.parse(requestBody) : {}
     # Get ready to start a game with the request data    
