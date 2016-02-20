@@ -38,6 +38,7 @@ end
 def getOrderedFood(food, coord)
     # find how many moves each food is
     # re-order into array
+    puts "WE ARE GETTING ORDERED FOOD"
     orderedFood = food.sort_by { |apple| (apple[0] - coord[0]) + (apple[1] - coord[1]) }
     puts "FOOD IS {{food}}"
     puts "ORDERED FOOD IS {{orderedFood}}"
@@ -84,8 +85,10 @@ post '/move' do
 
     getAdjacentCoordinates(boomslang[:coords][0])
 
-    puts "REQ JSON" + requestJson['food']
+    puts "CAN ANYONE HEAR ME"
+    # puts "REQ JSON" + requestJson['food']
     puts "BOOMSL" + boomslang[:coords][0]
+
 
     getOrderedFood(requestJson["food"], boomslang[:coords][0])
     # isWallOrSnake(requestJSON)
