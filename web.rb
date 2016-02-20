@@ -44,7 +44,7 @@ end
 # Orders food by # of moves from to a coordinate
 def getOrderedFood(food, coord)
     puts "WE ARE GETTING ORDERED FOOD"
-    orderedFood = food.sort_by { |apple| (apple[0] - coord[0]) + (apple[1] - coord[1]) }
+    orderedFood = food.sort_by { |apple| (apple[0] - coord[0]).abs + (apple[1] - coord[1]).abs }
     puts "FOOD"
     print food
     puts "ORDERED FOOD"
