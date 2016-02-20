@@ -3,7 +3,7 @@ require 'json'
 
 get '/' do
     responseObject = {
-        "color"=> "#fff000",
+        "color"=> "#fff111",
         "head_url"=> "url/to/your/img/file"
     }
 
