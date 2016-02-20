@@ -13,9 +13,16 @@ def getAdjacentCoordinates(coord)
     return [north, south, east, west]
 end
 
+# def isWAll?(coordinate, )
 
-def isWallOrSnake?(coordinate, snakes)
-    snakes = 'hello'
+# end
+
+# def isSnake?(coordinate,  )
+def isWallOrSnake(requestJSON)
+    snakeArray = requestJSON["snakes"]
+    snakeCoords = snakeArray.map{|x| x[:"coord"]}
+    puts snakeArray
+    # snakes = 
 end
 
 # Orders food by # of moves from to a coordinate
@@ -71,6 +78,10 @@ post '/move' do
     getAdjacentCoordinates(boomslang[:coords][0])
 
     getOrderedFood(requestJson["food"], boomslang[:coords][0])
+    # isWallOrSnake(requestJSON)
+    # Our next move is not towards a wall
+    # Identify possible moves
+
 
     responseObject = {
         "move" => "north", # One of either "north", "east", "south", or "west".
