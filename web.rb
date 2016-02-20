@@ -70,9 +70,7 @@ post '/start' do
     responseObject = {
         "taunt" => "battlesnake-ruby",
     }
-
-    puts "IN START IM STARTING"
-
+    
     return responseObject.to_json
 end
 
@@ -85,9 +83,9 @@ post '/move' do
     # Dummy response
 
     # Identify us
-    boomslang = requestJson["snakes"].detect { |snake| snake[:id] == "76bbcf39-5b5e-4888-a3a7-808c88fb8126" }
+    # boomslang = requestJson["snakes"].detect { |snake| snake[:id] == "76bbcf39-5b5e-4888-a3a7-808c88fb8126" }
 
-    getAdjacentCoordinates(boomslang[:coords][0])
+    # getAdjacentCoordinates(boomslang[:coords][0])
 
     puts "CAN ANYONE HEAR ME"
 
