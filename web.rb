@@ -86,11 +86,11 @@ post '/move' do
 
     boomslang = requestJson["snakes"].detect { |snake| snake["id"] == "76bbcf39-5b5e-4888-a3a7-808c88fb8126" }
 
-    # getAdjacentCoordinates(boomslang[:coords][0])
+    # getAdjacentCoordinates(boomslang["coords"][0])
 
     puts "CAN ANYONE HEAR ME"
 
-    # getOrderedFood(requestJson["food"], boomslang[:coords][0])
+    getOrderedFood(requestJson["food"], boomslang["coords"][0])
     # getOrderedFood(requestJson["food"], boomslang[:coords][0])
     # isWallOrSnake(requestJSON)
 
