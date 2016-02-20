@@ -13,33 +13,23 @@ def getAdjacentCoordinates(coord)
     return [north, south, east, west]
 end
 
-# def getSnakeCoords(snakes)
-#     coords = []
-#     snakes.each do |snake|
-#         coords.push(snake[:coords].flatten!)
-#     end
-#     puts coords
-# end  
-# def isWAll?(coordinate, )
 
-# end
+def isWallOrSnake(coord, responseJson)
+    snakeArray = responseJson["snakes"]
+    width = responseJson["width"]
+    height = responseJson["height"]
+    coords = []
+    snakeArray.each do |snake|
+      snakeCoords =  snake["coords"]
+        snakeCoords.each do |snakeCoords|
+            coords.push snakeCoords
+        end
+    end
+    isSnake = coords.include? coord 
+    puts isSnake || coord[0] == 0 || coord[0] == width || coord[1] == 0 && coord[1] == height
+    return isSnake || coord[0] == 0 || coord[0] == width || coord[1] == 0 && coord[1] == height
+end
 
-# def isSnake?(coordinate,  )
-# def isWallOrSnake(requestJSON)
-#     snakeArray = requestJSON["snakes"]
-#     coordsArray = []
-#     snakeArray.each do |x|
-#         coordsArray.push(x["coords"].flatten!)
-#     end
-#     # snakeCoords = snakeArray.map{|x| x[:"coord"]}
-#     puts coordsArray
-#     # snakes = 
-# # def isWallOrSnake(requestJSON)
-# #     snakeArray = requestJSON["snakes"]
-# #     snakeCoords = snakeArray.map{|x| x[:"coord"]}
-# #     puts snakeArray
-# #     # snakes = 
-# end
 
 # Orders food by # of moves from to a coordinate
 def getOrderedFood(food, coord)
@@ -88,10 +78,10 @@ post '/move' do
     # Identify us
     boomslang = requestJson["snakes"].detect { |snake| snake["id"] == "76bbcf39-5b5e-4888-a3a7-808c88fb8126" }
     boomslangHead = boomslang["coords"][0]
-    # getAdjacentCoordinates(boomslang["coords"][0])
-
+    adjacentCoordinates  = getAdjacentCoordinates(boomslang["coords"][0])
+    puts "this are adjacent coord: " + adjacentCoordinates
     getOrderedFood(requestJson["food"], boomslangHead)
-
+    
     # isWallOrSnake(requestJSON)
     # getSnakeCoords(requestJson["snakes"])
     
