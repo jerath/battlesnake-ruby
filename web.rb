@@ -89,7 +89,7 @@ post '/move' do
 
     puts "CAN ANYONE HEAR ME"
 
-    getOrderedFood(requestJson["food"], boomslang[:coords][0])
+    # getOrderedFood(requestJson["food"], boomslang[:coords][0])
     # getOrderedFood(requestJson["food"], boomslang[:coords][0])
     # isWallOrSnake(requestJSON)
 
