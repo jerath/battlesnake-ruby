@@ -1,7 +1,26 @@
 require 'sinatra'
 require 'json'
 
-id = "76bbcf39-5b5e-4888-a3a7-808c88fb8126"
+id= "76bbcf39-5b5e-4888-a3a7-808c88fb8126"
+north = nil
+west = nil
+south = nil
+east = nil
+
+def setCoordinates(boomslangheadcoordinate)
+
+
+end
+
+
+def isWallOrSnake?(coordinate)
+
+end
+
+
+
+
+
 
 get '/' do
     responseObject = {
@@ -19,10 +38,9 @@ post '/start' do
     puts requestBody
     height = requestJson["height"]
     width = requestJson["width"] 
-    totalSnakes= requestJson["snakes"].length    
-    
+    totalSnakes= requestJson["snakes"].length
+    # boomslang = requestJson.find {|x| x['id'] == id }
     # puts boomslang
-
 # Dummy response
     responseObject = {
         "taunt" => "battlesnake-ruby",
@@ -38,14 +56,6 @@ post '/move' do
     # Calculate a move with the request data
     puts requestBody
     # Dummy response
-
-    # Identify us
-    boomslang = requestJson["snakes"].detect { |snake| snake[:id] == "76bbcf39-5b5e-4888-a3a7-808c88fb8126" }
-    getCoordinates(boomsland[:coords][0])
-
-    # Our next move is not towards a wall
-    # Identify possible moves
-
     responseObject = {
         "move" => "north", # One of either "north", "east", "south", or "west".
         "taunt" => "going north!",
