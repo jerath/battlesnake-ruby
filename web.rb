@@ -88,7 +88,7 @@ post '/move' do
     puts "BOOMSL", boomslang[:coords][0]
 
     getOrderedFood(requestJson["food"], boomslang[:coords][0])
-    # isWallOrSnake(requestJSON)
+    isWallOrSnake(requestJSON)
     # Our next move is not towards a wall
     # Identify possible moves
 
