@@ -15,7 +15,7 @@ end
 
 
 def isWallOrSnake?(coordinate, snakes)
-    snakes = 
+    snakes = 'hello'
 end
 
 get '/' do
