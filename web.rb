@@ -45,6 +45,10 @@ end
 def getOrderedFood(food, coord)
     puts "WE ARE GETTING ORDERED FOOD"
     orderedFood = food.sort_by { |apple| (apple[0] - coord[0]) + (apple[1] - coord[1]) }
+    puts "FOOD"
+    puts food
+    puts "ORDERED FOOD"
+    puts orderedFood
 end
 
 get '/' do
@@ -79,24 +83,16 @@ post '/move' do
     requestJson = requestBody ? JSON.parse(requestBody) : {}
 
     # Calculate a move with the request data
-    puts "REQUEST JSON IS:"
     puts requestJson
 
     # Identify us
-
     boomslang = requestJson["snakes"].detect { |snake| snake["id"] == "76bbcf39-5b5e-4888-a3a7-808c88fb8126" }
-
+    boomslangHead = boomslang["coords"][0]
     # getAdjacentCoordinates(boomslang["coords"][0])
 
-    puts "CAN ANYONE HEAR ME"
+    getOrderedFood(requestJson["food"], boomslangHead)
 
-    getOrderedFood(requestJson["food"], boomslang["coords"][0])
-    # getOrderedFood(requestJson["food"], boomslang[:coords][0])
     # isWallOrSnake(requestJSON)
-
-    # Our next move is not towards a wall
-    # Identify possible moves
-
     # getSnakeCoords(requestJson["snakes"])
     
     responseObject = {
