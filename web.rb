@@ -36,12 +36,8 @@ end
 
 # Orders food by # of moves from to a coordinate
 def getOrderedFood(food, coord)
-    # find how many moves each food is
-    # re-order into array
     puts "WE ARE GETTING ORDERED FOOD"
     orderedFood = food.sort_by { |apple| (apple[0] - coord[0]) + (apple[1] - coord[1]) }
-    # puts "FOOD IS {{food}}"
-    # puts "ORDERED FOOD IS {{orderedFood}}"
 end
 
 get '/' do
@@ -56,15 +52,13 @@ end
 post '/start' do
     requestBody = request.body.read
     requestJson = requestBody ? JSON.parse(requestBody) : {}
-    # Get ready to start a game with the request data
+    # Get ready to start a game with the request data    
     puts requestBody
     height = requestJson["height"]
     width = requestJson["width"] 
     puts requestJson["snakes"] 
-    
-    # puts boomslang
 
-# Dummy response
+    # Dummy response
     responseObject = {
         "taunt" => "battlesnake-ruby",
     }
@@ -86,15 +80,9 @@ post '/move' do
     getAdjacentCoordinates(boomslang[:coords][0])
 
     puts "CAN ANYONE HEAR ME"
-    # puts "REQ JSON" + requestJson['food']
-    puts "BOOMSL" + boomslang[:coords][0]
 
-
-    getOrderedFood(requestJson["food"], boomslang[:coords][0])
+    # getOrderedFood(requestJson["food"], boomslang[:coords][0])
     # isWallOrSnake(requestJSON)
-    # Our next move is not towards a wall
-    # Identify possible moves
-
 
     responseObject = {
         "move" => "north", # One of either "north", "east", "south", or "west".
