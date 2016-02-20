@@ -15,6 +15,7 @@ post '/start' do
     requestJson = requestBody ? JSON.parse(requestBody) : {}
 
     # Get ready to start a game with the request data
+    puts requestBody
 
     # Dummy response
     responseObject = {
@@ -29,7 +30,7 @@ post '/move' do
     requestJson = requestBody ? JSON.parse(requestBody) : {}
 
     # Calculate a move with the request data
-
+    puts requestBody
     # Dummy response
     responseObject = {
         "move" => "north", # One of either "north", "east", "south", or "west".
