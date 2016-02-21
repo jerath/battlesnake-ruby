@@ -128,7 +128,9 @@ post '/move' do
 
     puts "BEST MOVE IS!!"
     puts bestMoveCoords.to_s
-    
+    move = getHashKeyDirections(adjacentCoordinates, bestMoveCoords)
+    puts "GO: "
+    puts move
     responseObject = {
         "move" => "north", # One of either "north", "east", "south", or "west".
         "taunt" => "going north!",
