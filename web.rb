@@ -32,6 +32,8 @@ def onlyKeepSafeCoordinates(adjacentCoordinates, responseJson)
     
     puts "HEY IM IN THIE SMESHHETHOD "
     puts responseJson.to_s
+    puts "END RESPONSE DATA FROM SAFE COORDS"
+
     safeAdjacent = []
     adjacentCoordinates.each do |coord|
       puts coord.to_s
@@ -41,7 +43,9 @@ def onlyKeepSafeCoordinates(adjacentCoordinates, responseJson)
         safeAdjacent.push(coord)
       end
     end
+    puts "THESE ARE THE SAFE COORDS"
     puts safeAdjacent.to_s
+    puts "END SAFE COORDS"
     return safeAdjacent
 end
 
