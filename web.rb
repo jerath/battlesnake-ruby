@@ -85,7 +85,7 @@ end
 def getSafestMoves(adjacentMoves, requestJson)
     safestMoves = adjacentMoves.sort_by { |move| onlyKeepSafeCoordinates(getAdjacentCoordinates(move), requestJson).size }
     puts "SAFEST MOVES"
-    puts safestMoves
+    puts safestMoves.to_s
     return safestMoves
 end
 
