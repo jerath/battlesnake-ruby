@@ -53,6 +53,7 @@ end
 def getOrderedFood(food, coord)
     orderedFood = food.sort_by { |apple| (apple[0] - coord[0]).abs + (apple[1] - coord[1]).abs }
     puts "ORDERED FOOD: " +  orderedFood.to_s
+    return orderedFood
 end
 
 def getBestMoveInTermsOfFood(orderedFood, moveOptions)
@@ -114,7 +115,7 @@ post '/move' do
     orderedFood = getOrderedFood(requestJson["food"], boomslangHead)
 
     puts "ordered food is ... ? " + orderedFood.to_s
-    
+
     moveOptions = onlyKeepSafeCoordinates(adjacentCoordinates, requestJson)
 
     bestMoveCoords = getBestMoveInTermsOfFood(orderedFood, moveOptions)
