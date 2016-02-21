@@ -29,6 +29,9 @@ def isWallOrSnake?(coord, responseJson)
 end
 
 def onlyKeepSafeCoordinates(adjacentCoordinates, responseJson)
+    
+    puts "HEY IM IN THIE SMESHHETHOD "
+    puts responseJson.to_s
     safeAdjacent = []
     adjacentCoordinates.each do |coord|
       puts coord.to_s
@@ -39,6 +42,7 @@ def onlyKeepSafeCoordinates(adjacentCoordinates, responseJson)
       end
     end
     puts safeAdjacent.to_s
+    return safeAdjacent
 end
 
 # Orders food by # of moves from to a coordinate
@@ -93,7 +97,9 @@ post '/move' do
     # Identify us
     boomslang = requestJson["snakes"].detect { |snake| snake["id"] == "76bbcf39-5b5e-4888-a3a7-808c88fb8126" }
     boomslangHead = boomslang["coords"][0]
+
     adjacentCoordinates  = getAdjacentCoordinates(boomslang["coords"][0])
+    
     puts "this are adjacent coord: " + adjacentCoordinates.to_s
     
     orderedFood = getOrderedFood(requestJson["food"], boomslangHead)
