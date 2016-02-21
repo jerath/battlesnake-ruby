@@ -26,8 +26,8 @@ end
 
 def isWallOrSnake?(coord, responseJson)
     snakeArray = responseJson["snakes"]
-    width = responseJson["width"]
-    height = responseJson["height"]
+    width = responseJson["width"] - 1
+    height = responseJson["height"] - 1
     coords = []
     snakeArray.each do |snake|
       snakeCoords =  snake["coords"]
