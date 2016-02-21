@@ -12,6 +12,17 @@ def getAdjacentCoordinates(coord)
     return [north, south, east, west]
 end
 
+# use getHashKeyDirections with (getAdjacentCoordinates(coord), and then coord we want to go to)
+
+def getHashKeyDirections(arrayNSET, coord)
+  directions = {}
+  directions["north"] = arrayNSET[0]
+  directions["south"] = arrayNSET[1]
+  directions["east"] = arrayNSET[2]
+  directions["west"] = arrayNSET[3]
+  return directions.key(coord).to_s
+end
+
 
 def isWallOrSnake?(coord, responseJson)
     snakeArray = responseJson["snakes"]
@@ -122,7 +133,9 @@ post '/move' do
 
     puts "BEST MOVE IS!!"
     puts bestMoveCoords.to_s
-    
+    move = getHashKeyDirections(adjacentCoordinates, bestMoveCoords)
+    puts "GO: "
+    puts move
     responseObject = {
         "move" => "north", # One of either "north", "east", "south", or "west".
         "taunt" => "going north!",
