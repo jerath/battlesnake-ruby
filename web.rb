@@ -26,8 +26,8 @@ end
 
 def isWallOrSnake?(coord, responseJson)
     snakeArray = responseJson["snakes"]
-    width = responseJson["width"] - 1
-    height = responseJson["height"] - 1
+    width = responseJson["width"]
+    height = responseJson["height"]
     coords = []
     snakeArray.each do |snake|
       snakeCoords =  snake["coords"]
@@ -36,7 +36,7 @@ def isWallOrSnake?(coord, responseJson)
         end
     end
     isSnake = coords.include? coord 
-    return isSnake || coord[0] == 0 || coord[0] == width || coord[1] == 0 || coord[1] == height
+    return isSnake || coord[0] < 0 || coord[0] > (width - 1) || coord[1] < 0 || coord[1] > (height - 1)
 end
 
 def onlyKeepSafeCoordinates(adjacentCoordinates, responseJson)
