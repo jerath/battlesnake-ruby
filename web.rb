@@ -36,7 +36,7 @@ def isWallOrSnake?(coord, responseJson)
         end
     end
     isSnake = coords.include? coord 
-    return isSnake || coord[0] == 1 || coord[0] == width || coord[1] == 1 || coord[1] == height
+    return isSnake || coord[0] == 0 || coord[0] == width || coord[1] == 0 || coord[1] == height
 end
 
 def onlyKeepSafeCoordinates(adjacentCoordinates, responseJson)
@@ -124,8 +124,6 @@ post '/move' do
     puts "this are adjacent coord: " + adjacentCoordinates.to_s
     
     orderedFood = getOrderedFood(requestJson["food"], boomslangHead)
-
-    puts "ordered food is ... ? " + orderedFood.to_s
 
     moveOptions = onlyKeepSafeCoordinates(adjacentCoordinates, requestJson)
 
