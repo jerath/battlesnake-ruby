@@ -24,7 +24,7 @@ def getHashKeyDirections(arrayNSET, coord)
 end
 
 
-def isWallOrSnake?(coord, responseJson)
+def isWallOrSnake?(coord, snakeArray)
     snakeArray = responseJson["snakes"]
     width = responseJson["width"]
     height = responseJson["height"]
@@ -82,6 +82,13 @@ def getBestMoveInTermsOfFood(orderedFood, moveOptions)
     return bestFoodMove
 end
 
+def getSafestMove(adjacentMoves, requestBody)
+    safestMoves = adjacentMoves.sort_by { |move| onlyKeepSafeCoordinates(getAdjacentCoordinates(move), requestBody).size }
+    puts "SAFEST MOVES"
+    puts safestMoves
+    return safestMoves
+end
+
 get '/' do
     responseObject = {
         "color"=> "#bada55",
@@ -128,6 +135,8 @@ post '/move' do
     moveOptions = onlyKeepSafeCoordinates(adjacentCoordinates, requestJson)
 
     bestMoveCoords = getBestMoveInTermsOfFood(orderedFood, moveOptions)
+
+    getSafestMoves(adjacentCoordinates, requestJson)
 
     puts "BEST MOVE IS!!"
     puts bestMoveCoords.to_s
