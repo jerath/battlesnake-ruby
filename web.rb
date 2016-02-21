@@ -60,6 +60,7 @@ def getBestMoveInTermsOfFood(orderedFood, moveOptions)
         puts "WE'RE DEAD"
     end
 
+    puts "ORDERED FOOD: " + orderedFood[0].to_s
     targetFood = orderedFood[0]
     orderedMoveOptions = moveOptions.sort_by { |move|  (move[0] - targetFood[0]).abs + (move[1] - targetFood[1]).abs }
     
