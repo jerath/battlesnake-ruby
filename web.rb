@@ -28,7 +28,7 @@ def isWallOrSnake?(coord, responseJson)
     return isSnake || coord[0] == 1 || coord[0] == width || coord[1] == 1 || coord[1] == height
 end
 
-def onlyKeepAdjacentCoordinates(adjacentCoordinates, responseJson)
+def onlyKeepSafeCoordinates(adjacentCoordinates, responseJson)
     safeAdjacent = []
     adjacentCoordinates.each do |coord|
       puts coord.to_s
@@ -41,7 +41,6 @@ def onlyKeepAdjacentCoordinates(adjacentCoordinates, responseJson)
     puts safeAdjacent.to_s
 end
 
-
 # Orders food by # of moves from to a coordinate
 def getOrderedFood(food, coord)
     orderedFood = food.sort_by { |apple| (apple[0] - coord[0]).abs + (apple[1] - coord[1]).abs }
@@ -51,7 +50,11 @@ end
 def getBestMoveInTermsOfFood(orderedFood, moveOptions)
     targetFood = orderedFood[0]
     orderedMoveOptions = moveOptions.sort_by { |move|  (move[0] - targetFood[0]).abs + (move[1] - targetFood[1]).abs }
-    orderedMoveOptions.first
+    
+    bestFoodMove = orderedMoveOptions.first
+    puts "BEST FOOD MOVE: " + bestFoodMove.to_s
+
+    return bestFoodMove
 end
 
 get '/' do
@@ -92,10 +95,14 @@ post '/move' do
     boomslangHead = boomslang["coords"][0]
     adjacentCoordinates  = getAdjacentCoordinates(boomslang["coords"][0])
     puts "this are adjacent coord: " + adjacentCoordinates.to_s
-    getOrderedFood(requestJson["food"], boomslangHead)
     
-    # isWallOrSnake(requestJSON)
-    # getSnakeCoords(requestJson["snakes"])
+    orderedFood = getOrderedFood(requestJson["food"], boomslangHead)
+    moveOptions = onlyKeepSafeCoordinates(adjacentCoordinates, responseJson)
+
+    bestMoveCoords = getBestMoveInTermsOfFood(orderedFood, moveOptions)
+
+    puts "BEST MOVE IS!!"
+    puts bestMoveCoords.to_s
     
     responseObject = {
         "move" => "north", # One of either "north", "east", "south", or "west".
