@@ -137,7 +137,7 @@ post '/move' do
     puts "GO: "
     puts move
     responseObject = {
-        "move" => "north", # One of either "north", "east", "south", or "west".
+        "move" => move, # One of either "north", "east", "south", or "west".
         "taunt" => "going north!",
     }
 
