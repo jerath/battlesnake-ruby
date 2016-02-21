@@ -97,7 +97,7 @@ post '/move' do
     puts "this are adjacent coord: " + adjacentCoordinates.to_s
     
     orderedFood = getOrderedFood(requestJson["food"], boomslangHead)
-    moveOptions = onlyKeepSafeCoordinates(adjacentCoordinates, responseJson)
+    moveOptions = onlyKeepSafeCoordinates(adjacentCoordinates, requestJson)
 
     bestMoveCoords = getBestMoveInTermsOfFood(orderedFood, moveOptions)
 
