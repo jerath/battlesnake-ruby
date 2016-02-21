@@ -82,8 +82,8 @@ def getBestMoveInTermsOfFood(orderedFood, moveOptions)
     return bestFoodMove
 end
 
-def getSafestMove(adjacentMoves, requestBody)
-    safestMoves = adjacentMoves.sort_by { |move| onlyKeepSafeCoordinates(getAdjacentCoordinates(move), requestBody).size }
+def getSafestMove(adjacentMoves, requestJson)
+    safestMoves = adjacentMoves.sort_by { |move| onlyKeepSafeCoordinates(getAdjacentCoordinates(move), requestJson).size }
     puts "SAFEST MOVES"
     puts safestMoves
     return safestMoves
