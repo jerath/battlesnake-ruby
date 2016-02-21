@@ -24,7 +24,7 @@ def getHashKeyDirections(arrayNSET, coord)
 end
 
 
-def isWallOrSnake?(coord, snakeArray)
+def isWallOrSnake?(coord, responseJson)
     snakeArray = responseJson["snakes"]
     width = responseJson["width"]
     height = responseJson["height"]
